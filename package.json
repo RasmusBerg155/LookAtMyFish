@@ -1,0 +1,26 @@
+{
+  "name": "lookatmyfish",
+  "version": "0.0.1",
+  "description": "This is a website to brag about your fish that you caught on your last trip. Upload pictures, gain followers, chat with other fishermen and much, much more...",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RasmusBerg155/LookAtMyFish.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Express"
+  ],
+  "author": "Rasmus M. Berg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RasmusBerg155/LookAtMyFish/issues"
+  },
+  "homepage": "https://github.com/RasmusBerg155/LookAtMyFish#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
