@@ -1,4 +1,4 @@
-function registerUser(){
+function registerUser() {
 fetch("/api/auth", {
     method: "POST",
     headers: { "Content-type": "application/json; charset=UTF-8"},
@@ -18,6 +18,6 @@ fetch("/api/auth", {
 }) 
 }
 
-
+document.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("register-user").addEventListener("click", registerUser)
-
+})
