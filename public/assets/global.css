@@ -10,6 +10,7 @@ body {
     grid-template-columns: 275px auto 350px;
     margin: 0 auto;
     width: 80%;
+    padding-top: 20px;
 }
 
 .right-sidebar {
@@ -26,8 +27,10 @@ body {
 }
 
 footer {
+    color: white;
     position:absolute;
     bottom:0;
-    width:100%;
-    background:#6cf;
+    width: 100%;
+    background: #15134E;
+   
  }
