@@ -8,11 +8,10 @@
     position: fixed;
 }
 
-.logo{
-    display: left;
-    background: url("../../assets/logo.jpg") no-repeat center;
-    height: 10vh;
-    color: white;
-    min-height: 50px;
-    font-family: 'Ubuntu', sans-serif;
+.logo-img {
+    float: left;
+    position: relative;
+    margin: 10px 15px 15px 10px;
+    width: 50px;
+    height: auto;
 }
