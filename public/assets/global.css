@@ -7,3 +7,12 @@
 .right-sidebar {
     position: fixed;
 }
+
+.logo{
+    display: left;
+    background: url("../../assets/logo.jpg") no-repeat center;
+    height: 10vh;
+    color: white;
+    min-height: 50px;
+    font-family: 'Ubuntu', sans-serif;
+}
