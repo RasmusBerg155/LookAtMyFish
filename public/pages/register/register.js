@@ -1,5 +1,5 @@
 function registerUser(){
-fetch("/api/auth", {
+fetch("/api/auth/register", {
     method: "POST",
     headers: { "Content-type": "application/json; charset=UTF-8"},
     body: JSON.stringify ({
@@ -9,7 +9,7 @@ fetch("/api/auth", {
     })
 }).then(res => {
     if (res.status == 200) {
-        console.log("Register successfull")
+        console.log("Register successful")
         setTimeout(() => location.href= "/login", 1500);
     }
     else {
@@ -19,5 +19,5 @@ fetch("/api/auth", {
 }
 
 
-    document.getElementById("register-user").addEventListener("click", registerUser)
+document.getElementById("register-user").addEventListener("click", registerUser)
 
