@@ -6,7 +6,7 @@ const loginPage = createPage("login/login.html", {title: "Look At My Fish | Logi
 const registerPage = createPage("register/register.html", {title: "Look At My Fish | Register"});
 const indexPage = createPage("index/index.html", {title: "Look At My Fish | Index"})
 
-router.get("/", (req, res) => {
+router.get("/login", (req, res) => {
     res.send(loginPage);
 });
 
