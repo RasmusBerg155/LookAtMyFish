@@ -3,8 +3,8 @@ const fs = require("fs");
 const nav = fs.readFileSync("./public/components/nav/nav.html", "utf8");
 const footer = fs.readFileSync("./public/components/footer/footer.html", "utf8");
 
-const sidebarLeft = fs.readFileSync("./public/components/sidebar/left.html", "utf8");
-const sidebarRight = fs.readFileSync("./public/components/sidebar/right.html", "utf8");
+const sidebarLeft = fs.readFileSync("./public/components/leftbar/leftbar.html", "utf8");
+const sidebarRight = fs.readFileSync("./public/components/rightbar/rightbar.html", "utf8");
 
 
 
