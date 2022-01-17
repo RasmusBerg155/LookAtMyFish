@@ -1,5 +1,3 @@
-
-
 async function getName(id) {
     return fetch("/api/users/" + id).then((data) => {
         return data.json();
@@ -18,7 +16,7 @@ fetch("/api/posts/timeline/all")
 .then((data) => {
     return data.json();
 })
-.then((completedata) => {
+.then(async (completedata) => {
     completedata.map(async (values) => {
         const name = await getName(values.userId)
         
@@ -40,7 +38,7 @@ fetch("/api/posts/timeline/all")
 
             <div class="postCenter">
                 <span class="postText"> ${values.desc} </span>
-                <img class="postImg" src="assets/posts/post1.jpg" />
+                <img class="postImg" src="${values.img}" />
             </div>
 
             <div class="postBottom">
