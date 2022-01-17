@@ -17,7 +17,11 @@ const upload = multer({storage: storage});
 // create a post
 router.post("/", upload.single("postImg"), async (req, res) => {
     console.log(req.file);
-    const newPost = new Post(req.body);
+    const newPost = new Post({
+        desc: req.body.desc,
+        userId: req.body.userId,
+        img: req.file.path.substring(7)
+    });
     try {
         const savedPost = await newPost.save();
         res.status(200).json(savedPost);

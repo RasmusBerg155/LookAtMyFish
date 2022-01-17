@@ -1,45 +1,46 @@
 <div class="shareContainer">
     <div class="share">
         <div class="shareWrapper">
+            <form id="postForm">
+                <div class="shareTop">
+                    <img class="shareProfileImg" src="assets/profiles/profile2.jpg" />
 
-            <div class="shareTop">
-                <img class="shareProfileImg" src="assets/profiles/profile2.jpg" />
+                    <input type="text" name="desc" id="desc" placeholder="Share your catch!" class="shareInput">
 
-                <input type="text" name="desc" id="desc" placeholder="Share your catch!" class="shareInput">
-
-                <input type="hidden" name="img" id="img" value="default.jpg">
-            </div>
-
-
-            <hr class="shareHr">
-
-
-            <div class="shareBottom">
-                <div class="shareOptions">
-
-                    <div class="shareOption">
-                        <img src="./assets/svg/media.svg" class="shareIcon" style="color: burlywood;" />
-                        <span class="shareOptionText">Photo or Video</span>
-                    </div>
-                    <div class="shareOption">
-                        <img src="./assets/svg/poll.svg" class="shareIcon" />
-                        <span class="shareOptionText">Tag</span>
-                    </div>
-                    <div class="shareOption">
-                        <img src="./assets/svg/location.svg" class="shareIcon" />
-                        <span class="shareOptionText">Location</span>
-                    </div>
-                    <div class="shareOption">
-                        <img src="./assets/svg/emoji.svg" class="shareIcon" />
-                        <span class="shareOptionText">Feeling</span>
-                    </div>
 
                 </div>
 
-                <button class="shareButton" id="shareButton">Share</button>
-            </div>
+
+                <hr class="shareHr">
+
+
+                <div class="shareBottom">
+                    <div class="shareOptions">
+
+                        <div class="shareOption">
+                            <img src="./assets/svg/media.svg" class="shareIcon" style="color: burlywood;" />
+                            <input type="file" name="postImg" id="postImg">
+                        </div>
+                        <div class="shareOption">
+                            <img src="./assets/svg/poll.svg" class="shareIcon" />
+                            <span class="shareOptionText">Tag</span>
+                        </div>
+                        <div class="shareOption">
+                            <img src="./assets/svg/location.svg" class="shareIcon" />
+                            <span class="shareOptionText">Location</span>
+                        </div>
+                        <div class="shareOption">
+                            <img src="./assets/svg/emoji.svg" class="shareIcon" />
+                            <span class="shareOptionText">Feeling</span>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="shareButton" id="shareButton">Share</button>
+            </form>
         </div>
     </div>
+</div>
 </div>
 
 <div id="postContainer"></div>

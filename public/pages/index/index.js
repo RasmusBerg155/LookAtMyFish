@@ -61,21 +61,33 @@ fetch("/api/posts/timeline/all")
         `
 
     
-    document.getElementById("postContainer").insertAdjacentHTML("beforeend", postData);
+    document.getElementById("postContainer").insertAdjacentHTML("afterbegin", postData);
     });
 }).catch((err) => {
     console.log(err);
 });
 
+
+
+
+
 function createPost(){
+
+    
+    let formData = new FormData();
+
+    formData.append("postImg", input.files[0]);
+    formData.append("desc", document.getElementById("desc").value);
+    formData.append("userId", "61e55762c46d838aca51aa5a");
+    
     fetch("/api/posts/", {
         method: "POST",
-        headers: { "Content-type": "application/json; charset=UTF-8"},
-        body: JSON.stringify ({
-            username: document.getElementById("username").value,
-            email: document.getElementById("email").value,
-            password: document.getElementById("password").value
-        })
+        body: formData
+        
+       // ({
+       //     desc: document.getElementById("desc").value,
+       //     userId: "61e55762c46d838aca51aa5a"
+       // })
     }).then(res => {
         if (res.status == 200) {
             console.log("Register successful")
@@ -86,5 +98,31 @@ function createPost(){
         }
     }) 
 }
+
+
+
+const postForm = document.getElementById("postForm");
+const postImg = document.getElementById("postImg");
+
+postForm.addEventListener ("submit",  e => {
+    e.preventDefault();
+
+    var formdata = new FormData();
+    formdata.append("desc", document.getElementById("desc").value);
+    formdata.append("postImg", postImg.files[0]);
+    formdata.append("userId", "61e55762c46d838aca51aa5a");
+    
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+      redirect: 'follow'
+    };
+    
+    fetch("/api/posts/", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+});
+
 
 
