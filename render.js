@@ -10,7 +10,7 @@ const sidebarRight = fs.readFileSync("./public/components/rightbar/rightbar.html
 
 function createPage(path, options) {
     return (nav + sidebarLeft + fs.readFileSync(`./public/pages/${path}`, "utf8") + sidebarRight + footer)
-    .replace("%%DOCUMENT_TITLE%%", options?.title || "LookAtMyFish")
+    .replace("%%DOCUMENT_TITLE%%", options.title || "LookAtMyFish")
 }
 
 module.exports = {
