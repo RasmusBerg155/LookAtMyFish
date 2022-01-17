@@ -19,8 +19,6 @@ fetch("/api/posts/timeline/all")
 .then(async (completedata) => {
     completedata.map(async (values) => {
         const name = await getName(values.userId)
-        
-
         const postData = `
         
     <div class="post">
@@ -57,8 +55,6 @@ fetch("/api/posts/timeline/all")
         
         
         `
-
-    
     document.getElementById("postContainer").insertAdjacentHTML("afterbegin", postData);
     });
 }).catch((err) => {
