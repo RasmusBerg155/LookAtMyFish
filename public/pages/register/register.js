@@ -1,4 +1,4 @@
-function createPosts(){
+function registerUser(){
     fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-type": "application/json; charset=UTF-8"},
@@ -19,5 +19,5 @@ function createPosts(){
 }
 
 
-document.getElementById("register-user").addEventListener("click", createPosts)
+document.getElementById("register-user").addEventListener("click", registerUser)
 
