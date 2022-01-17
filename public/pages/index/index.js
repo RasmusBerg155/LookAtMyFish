@@ -1,3 +1,21 @@
+function getName(id) {
+
+  return fetch("/api/users/" + id).then((data) => {
+        return data.json();
+
+    }).then((completedata) => {
+        console.log(completedata.username);
+        
+        return completedata.username;
+        
+    }).catch((err) => {
+        console.log(err);
+    });
+       
+
+}
+
+
 fetch("/api/posts/timeline/all").then((data) => {
     // console.log(data);
     return data.json();
@@ -14,7 +32,7 @@ fetch("/api/posts/timeline/all").then((data) => {
             <div class="postTop">
                 <div class="postTopLeft">
                     <img class="postProfileImg" src="assets/profiles/profile1.jpg" />
-                    <span class="postUsername"> ${values.userId} </span>
+                    <span class="postUsername"> ${getName(values.userId)} </span>
                     <span class="postDate"> ${values.createdAt} </span>
                 </div>
                 <div class="postTopRight">
