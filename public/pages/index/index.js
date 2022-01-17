@@ -121,7 +121,8 @@ postForm.addEventListener ("submit",  e => {
     };
     
     fetch("/api/posts/", requestOptions)
-      .then(response => response.text())
+      .then(response => response.text(),
+      setTimeout(() => location.href= "/index", 500))
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
 });
