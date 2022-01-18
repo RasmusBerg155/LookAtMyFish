@@ -26,19 +26,11 @@ router.get("/index", (req, res) => {
 });
 
 router.get("/profile", (req, res) => {
-    if(req.session.loggedIn){
-        res.send(profilePage);
-    } else {
-        res.redirect("/login")
-    }
+    res.send(profilePage);
 })
 
 router.get("/messages", (req, res) => {
-    if(req.session.loggedIn){
-        res.send(messagesPage);
-    } else {
-        res.redirect("/login")
-    }
+    res.send(messagesPage);
 })
 
 module.exports = router;

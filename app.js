@@ -52,7 +52,6 @@ mongoose.connect(
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
-app.use(urlencoded);
 
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
@@ -60,6 +59,11 @@ app.use("/api/posts", postRoute);
 
 app.use(pagesRoute);
 
+/*
+app.listen(8080, () => {
+    console.log("Server running on port 8080");
+});
+*/
 server.listen(3000, () => {
     console.log('Server listening on Port 3000');
   })
