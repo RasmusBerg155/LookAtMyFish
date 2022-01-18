@@ -26,11 +26,19 @@ router.get("/index", (req, res) => {
 });
 
 router.get("/profile", (req, res) => {
-    res.send(profilePage);
+    if(req.session.loggedIn){
+        res.send(profilePage);
+    } else {
+        res.redirect("/login")
+    }
 });
 
 router.get("/messages", (req, res) => {
-    res.send(messagesPage);
+    if(req.session.loggedIn){
+        res.send(messagesPage);
+    } else {
+        res.redirect("/login")
+    }
 });
 
 router.get("/", (req, res) => {
