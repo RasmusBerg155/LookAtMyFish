@@ -27,10 +27,15 @@ router.get("/index", (req, res) => {
 
 router.get("/profile", (req, res) => {
     res.send(profilePage);
-})
+});
 
 router.get("/messages", (req, res) => {
     res.send(messagesPage);
-})
+});
+
+router.get("/", (req, res) => {
+    req.session.destroy();
+    res.redirect("/login");
+});
 
 module.exports = router;
