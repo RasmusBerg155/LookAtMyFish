@@ -1,10 +1,23 @@
-<div id="message-container">
-    <form id="send-container">
-        <input type="text" id="message-input">
-        <button type="submit" id="send-button">Send!</button>
-    </form>
-</div>
+<div id="message-container"></div>
+<form id="send-container">
+    <input type="text" id="message-input">
+    <button type="submit" id="send-button">Send!</button>
+</form>
 
+
+<style>
+
+#send-container {
+      position: fixed;
+      padding-bottom: 30px;
+      bottom: 0;
+      background-color: white;
+      max-width: 1200px;
+      width: 80%;
+      display: flex;
+    }
+
+</style>
 
 <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script defer src="./pages/messages/messages.js"></script>
