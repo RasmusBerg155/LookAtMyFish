@@ -5,6 +5,14 @@ const mongoose = require("mongoose");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const session = require("express-session");
+const http = require("http");
+const { Server } = require("socket.io");
+const server = http.createServer(app);
+
+const io = new Server(server);
+
+
+
 
 dotenv.config();
 app.use(session({secret: 'shh'}));
@@ -20,6 +28,18 @@ const pagesRoute = require("./routers/pages");
 const { createPage } = require("./render.js");
 const { urlencoded } = require("express");
 
+
+
+//socket.io
+
+io.on("connection", socket => {
+    console.log("A user connected: {id: ", socket.id, "}")
+    socket.on("send-chat-message", message => {
+        socket.broadcast.emit("chat-message", message)
+    })
+})
+
+//mongoose
 mongoose.connect(
     process.env.MONGO_URI, 
     { useNewUrlParser: true, useUnifiedTopology: true },
@@ -39,7 +59,11 @@ app.use("/api/posts", postRoute);
 
 app.use(pagesRoute);
 
-
+/*
 app.listen(8080, () => {
     console.log("Server running on port 8080");
 });
+*/
+server.listen(3000, () => {
+    console.log('Server listening on Port 3000');
+  })
