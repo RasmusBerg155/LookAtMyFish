@@ -9,7 +9,8 @@ const indexPage = createPage("index/index.html", {title: "Look At My Fish | Inde
 const profilePage = createPage("profile/profile.html", {title: "Look At My Fish | Profile"})
 const messagesPage = createPage("messages/messages.html", {title: "Look At My Fish | Messages"})
 
-router.get("/login", (req, res) => {
+
+router.get("/", (req, res) => {
     res.send(loginPage);
 });
 
@@ -21,7 +22,7 @@ router.get("/index", (req, res) => {
     if(req.session.loggedIn){
     res.send(indexPage);
     } else {
-        res.redirect("/login")
+        res.redirect("/")
     }
 });
 
@@ -29,7 +30,7 @@ router.get("/profile", (req, res) => {
     if(req.session.loggedIn){
         res.send(profilePage);
     } else {
-        res.redirect("/login")
+        res.redirect("/")
     }
 });
 
@@ -37,13 +38,13 @@ router.get("/messages", (req, res) => {
     if(req.session.loggedIn){
         res.send(messagesPage);
     } else {
-        res.redirect("/login")
+        res.redirect("/")
     }
 });
 
-router.get("/", (req, res) => {
+router.get("/logout", (req, res) => {
     req.session.destroy();
-    res.redirect("/login");
+    res.redirect("/");
 });
 
 module.exports = router;

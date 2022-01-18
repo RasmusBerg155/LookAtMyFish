@@ -1,10 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
-// Auth mangler session 
-
-
-
 
 // register
 router.post("/register", async (req, res) => {
@@ -38,16 +34,15 @@ router.post("/login", async (req, res) => {
         if(!user){
             return res.status(404).json("user not found");
         } else if (!validPassword){
-            return res.status(404).json("wrong password")
+            return res.status(404).json("wrong password");
         } 
 
         req.session.loggedIn = true;
         req.session.currentUser = user;
         return res.status(200).json(user);
     } catch (err) {
-        console.log("yo5")
         res.status(500).json(err);
-    }
+    };
 });
 
 module.exports = router;

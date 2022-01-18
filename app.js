@@ -28,29 +28,14 @@ const pagesRoute = require("./routers/pages");
 const { createPage } = require("./render.js");
 const { urlencoded } = require("express");
 
-const users = {};
 
 //socket.io
 
 io.on("connection", socket => {
-
-
-    socket.on('new-user', name => {
-        users[socket.id] = name;
-        socket.broadcast.emit('user-connected', name);
-    })
-
-    
+    console.log("A user connected: {id: ", socket.id, "}")
     socket.on("send-chat-message", message => {
-        socket.broadcast.emit("chat-message", { message: message, name: users[socket.id]});
+        socket.broadcast.emit("chat-message", message)
     })
-
-    socket.on('disconnect', () => {
-        socket.broadcast.emit('user-disconnected', users[socket.id]);
-        delete users[socket.id];
-    })
-
-
 })
 
 //mongoose
@@ -66,6 +51,7 @@ mongoose.connect(
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+app.use(urlencoded);
 
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
@@ -73,11 +59,6 @@ app.use("/api/posts", postRoute);
 
 app.use(pagesRoute);
 
-/*
-app.listen(8080, () => {
-    console.log("Server running on port 8080");
-});
-*/
 server.listen(3000, () => {
     console.log('Server listening on Port 3000');
   })
