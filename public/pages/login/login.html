@@ -1,18 +1,23 @@
-<div>
-    <div>
-
-        <input id="email" type="email" placeholder="Email" required>
-
+<div class="login">
+    <div class="loginWrapper">
+        <div class="loginLeft">
+            <h3 class="loginLogo">Look At My Fish!</h3>
+            <span class="loginDesc">
+                Share your catching story and see your friends stories at <br>
+                <span class="miniLogo">"Look At My Fish!"</span>
+            </span>
+        </div>
+        <div class="loginRight">
+            <div class="loginBox"> 
+                <input class="loginInput" id="email" type="email" placeholder="Email" required>
+                <input class="loginInput" id="password" type="password" placeholder="Password" required>
+                <button class="loginButton" id="login-button">Login!</button>
+                <span class="loginForgot">Forgot Password?</span>
+                <button class="loginRegisterButton">Create a new account</button>
+            </div>
+        </div>
     </div>
-
-    <div>
-
-        <input id="password" type="password" placeholder="Password" required>
-
-    </div>
-
-    <button id="login-button">Login!</button>
-
 </div>
+
 
 <script src="./pages/login/login.js"></script>

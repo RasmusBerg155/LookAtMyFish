@@ -1,9 +1,10 @@
 const router = require("express").Router();
 
 const { createPage } = require("../render.js");
+const { frontPage } = require("../render.js");
 
-const loginPage = createPage("login/login.html", {title: "Look At My Fish | Login"});
-const registerPage = createPage("register/register.html", {title: "Look At My Fish | Register"});
+const loginPage = frontPage("login/login.html", {title: "Look At My Fish | Login"});
+const registerPage = frontPage("register/register.html", {title: "Look At My Fish | Register"});
 const indexPage = createPage("index/index.html", {title: "Look At My Fish | Index"})
 const profilePage = createPage("profile/profile.html", {title: "Look At My Fish | Profile"})
 const messagesPage = createPage("messages/messages.html", {title: "Look At My Fish | Messages"})
