@@ -45,14 +45,13 @@ router.post("/login", async (req, res) => {
         req.session.currentUser = user;
         return res.status(200).json(user);
     } catch (err) {
-        console.log("yo5")
         res.status(500).json(err);
     }
 });
 
 router.get("/logout", (req, res) => {
     req.session.destroy();
-    res.redirect("/login");
+    res.redirect("/");
 })
 
 module.exports = router;
