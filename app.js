@@ -27,9 +27,14 @@ const { createPage } = require("./render.js");
 const { urlencoded } = require("express");
 
 
+
 //socket.io
+
 io.on("connection", socket => {
-    socket.emit("chat-message", "Hello World")
+    console.log("A user connected: {id: ", socket.id, "}")
+    socket.on("send-chat-message", message => {
+        socket.broadcast.emit("chat-message", message)
+    })
 })
 
 //mongoose
