@@ -1,13 +1,27 @@
 const router = require("express").Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+    destination: function(req,file,cb) {
+        cb(null, "./public/assets/profiles");
+    },
+    filename: function (req,file,cb) {
+        cb(null, Date.now() + file.originalname);
+    }
+});
+
+const upload = multer({storage: storage});
+
+
 // Auth mangler session 
 
 
 
 
 // register
-router.post("/register", async (req, res) => {
+router.post("/register", upload.single("profileImg"), async (req, res) => {
     try{
         // hash the password
         const saltRounds = await bcrypt.genSalt(10);
@@ -17,7 +31,8 @@ router.post("/register", async (req, res) => {
         const newUser = new User({
             username: req.body.username,
             email: req.body.email,
-            password: hashedPassword
+            password: hashedPassword,
+            profilePicture: req.file.path.substring(7)
         });
 
         // save and respond

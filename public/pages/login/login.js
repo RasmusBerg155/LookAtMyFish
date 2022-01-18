@@ -6,8 +6,10 @@ function login() {
             email: document.getElementById("email").value,
             password: document.getElementById("password").value
         })
-    }).then(res => {
+    }).then(async res => {
         if (res.status == 200) {
+            const user = await res.json()
+            window.localStorage.setItem('user', JSON.stringify(user))
           //  toastr.success("Logging in...")
             console.log("Login successful")
             setTimeout(() => location.href= "/index", 1500);

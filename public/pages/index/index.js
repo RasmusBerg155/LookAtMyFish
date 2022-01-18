@@ -1,5 +1,3 @@
-
-
 async function getName(id) {
     return fetch("/api/users/" + id).then((data) => {
         return data.json();
@@ -122,7 +120,7 @@ postForm.addEventListener ("submit",  e => {
     var formdata = new FormData();
     formdata.append("desc", document.getElementById("desc").value);
     formdata.append("postImg", postImg.files[0]);
-    formdata.append("userId", "61e55762c46d838aca51aa5a");
+    formdata.append("userId", JSON.parse(window.localStorage.getItem('user'))._id);
     
     var requestOptions = {
       method: 'POST',
