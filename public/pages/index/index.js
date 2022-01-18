@@ -27,6 +27,8 @@ async function getPfP(id) {
 }
 
 
+
+
 fetch("/api/posts/timeline/all")
 .then((data) => {
     return data.json();
@@ -76,39 +78,6 @@ fetch("/api/posts/timeline/all")
 }).catch((err) => {
     console.log(err);
 });
-
-
-
-
-
-function createPost(){
-
-    
-    let formData = new FormData();
-
-    formData.append("postImg", input.files[0]);
-    formData.append("desc", document.getElementById("desc").value);
-    formData.append("userId", "61e55762c46d838aca51aa5a");
-    
-    fetch("/api/posts/", {
-        method: "POST",
-        body: formData
-        
-       // ({
-       //     desc: document.getElementById("desc").value,
-       //     userId: "61e55762c46d838aca51aa5a"
-       // })
-    }).then(res => {
-        if (res.status == 200) {
-            console.log("Post created")
-            setTimeout(() => location.href= "/index", 1500);
-        }
-        else {
-            console.log("Error:", res.status)
-        }
-    }) 
-}
-
 
 
 const postForm = document.getElementById("postForm");

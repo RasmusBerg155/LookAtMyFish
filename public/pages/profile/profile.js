@@ -1,4 +1,4 @@
-fetch("/api/users/61e55762c46d838aca51aa5a")
+fetch("/api/users/" + JSON.parse(window.localStorage.getItem("user"))._id)
 .then((data) => {
     console.log(data)
     return data.json();

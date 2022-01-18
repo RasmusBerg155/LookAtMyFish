@@ -21,7 +21,7 @@ const upload = multer({storage: storage});
 
 
 // register
-router.post("/register", upload.single("profileImg"), async (req, res) => {
+router.post("/register", upload.single("profilePicture"), async (req, res) => {
     try{
         // hash the password
         const saltRounds = await bcrypt.genSalt(10);
