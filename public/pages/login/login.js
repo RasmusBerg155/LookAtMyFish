@@ -8,13 +8,16 @@ function login() {
         })
     }).then(res => {
         if (res.status == 200) {
+          //  toastr.success("Logging in...")
             console.log("Login successful")
             setTimeout(() => location.href= "/index", 1500);
         }
         else {
+           // toastr("User doesnt exist")
             console.log("Error:", res.status)
         };
     });
 };
 
 document.getElementById("login-button").addEventListener("click", login);
+

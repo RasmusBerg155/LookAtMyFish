@@ -1,3 +1,5 @@
+
+
 async function getName(id) {
     return fetch("/api/users/" + id).then((data) => {
         return data.json();
@@ -84,8 +86,8 @@ function createPost(){
        // })
     }).then(res => {
         if (res.status == 200) {
-            console.log("Register successful")
-            setTimeout(() => location.href= "/login", 1500);
+            console.log("Post created")
+            setTimeout(() => location.href= "/index", 1500);
         }
         else {
             console.log("Error:", res.status)

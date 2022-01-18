@@ -18,7 +18,11 @@ router.get("/register", (req, res) => {
 });
 
 router.get("/index", (req, res) => {
+    if(req.session.loggedIn){
     res.send(indexPage);
+    } else {
+        res.redirect("/login")
+    }
 });
 
 router.get("/profile", (req, res) => {

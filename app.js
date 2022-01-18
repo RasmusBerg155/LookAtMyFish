@@ -4,8 +4,10 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const session = require("express-session");
 
 dotenv.config();
+app.use(session({secret: 'shh'}));
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

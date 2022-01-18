@@ -7,9 +7,8 @@ const sidebarLeft = fs.readFileSync("./public/components/leftbar/leftbar.html", 
 const sidebarRight = fs.readFileSync("./public/components/rightbar/rightbar.html", "utf8");
 
 
-function frontPage(path, options) {
-    return (nav + fs.readFileSync(`./public/pages/${path}`, "utf8") + footer)
-    .replace("%%DOCUMENT_TITLE%%", options.title || "LookAtMyFish")
+function frontPage(path) {
+    return (fs.readFileSync(`./public/pages/${path}`, "utf8"))
 }
 
 

@@ -1,0 +1,1 @@
+document.getElementById("logout-button").addEventListener("click", href="/api/users/logout")

@@ -1,23 +1,35 @@
-<div class="login">
-    <div class="loginWrapper">
-        <div class="loginLeft">
-            <h3 class="loginLogo">Look At My Fish!</h3>
-            <span class="loginDesc">
-                Share your catching story and see your friends stories at <br>
-                <span class="miniLogo">"Look At My Fish!"</span>
-            </span>
-        </div>
-        <div class="loginRight">
-            <div class="loginBox"> 
-                <input class="loginInput" id="email" type="email" placeholder="Email" required>
-                <input class="loginInput" id="password" type="password" placeholder="Password" required>
-                <button class="loginButton" id="login-button">Login!</button>
-                <span class="loginForgot">Forgot Password?</span>
-                <button class="loginRegisterButton">Create a new account</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../pages/login/login.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login">
+        <div class="loginWrapper">
+            <div class="loginLeft">
+                <h3 class="loginLogo">Look At My Fish!</h3>
+                <span class="loginDesc">
+                    Share your catching story and see your friends stories at <br>
+                    <span class="miniLogo">"Look At My Fish!"</span>
+                </span>
+            </div>
+            <div class="loginRight">
+                <div class="loginBox"> 
+                    <input class="loginInput" id="email" type="email" placeholder="Email" required>
+                    <input class="loginInput" id="password" type="password" placeholder="Password" required>
+                    <button class="login-button" id="login-button">Login!</button>
+                    <span class="loginForgot">Forgot Password?</span>
+                    <button class="loginRegisterButton"><a href="/register">Create a new account</a></button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+    
+</body>
+</html>
 
 <script src="./pages/login/login.js"></script>
