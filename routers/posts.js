@@ -93,7 +93,7 @@ router.get("/:id", async (req, res) => {
 router.get("/timeline/all", async (req, res) => {
     try {
     
-      const currentUser = await User.findById("61e55762c46d838aca51aa5a");
+      const currentUser = await User.findById(req.session.currentUser._id);
       const userPosts = await Post.find({ userId: currentUser._id });
       const friendPosts = await Promise.all(
         currentUser.followers.map((friendId) => {

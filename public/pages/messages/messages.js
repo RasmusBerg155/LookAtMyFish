@@ -5,7 +5,7 @@ const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
 
 
-const name = prompt("Your name?")
+const name = JSON.parse(window.localStorage.getItem("user")).username;
 
 
 appendMessage('You joined')
