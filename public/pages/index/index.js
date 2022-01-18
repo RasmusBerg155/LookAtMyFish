@@ -14,6 +14,21 @@ async function getName(id) {
     });
 }
 
+async function getPfP(id) {
+    return fetch("/api/users/" + id).then((data) => {
+        return data.json();
+  
+    }).then((completedata) => {
+        console.log(completedata.profilePicture);
+        
+        return completedata.profilePicture;
+        
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
+
 fetch("/api/posts/timeline/all")
 .then((data) => {
     return data.json();
@@ -21,13 +36,14 @@ fetch("/api/posts/timeline/all")
 .then(async (completedata) => {
     completedata.map(async (values) => {
         const name = await getName(values.userId)
+        const pfp = await getPfP(values.userId)
         const postData = `
         
     <div class="post">
         <div id="postWrapper">
             <div class="postTop">
                 <div class="postTopLeft">
-                    <img class="postProfileImg" src="assets/profiles/profile1.jpg" />
+                    <img class="postProfileImg" src="${pfp}" />
                     <span class="postUsername"> ${name} </span>
                     <span class="postDate"> ${values.createdAt} </span>
                 </div>
