@@ -40,7 +40,7 @@ fetch("/api/posts/timeline/all")
 
             <div class="postCenter">
                 <span class="postText"> ${values.desc} </span>
-                <img class="postImg" src="assets/posts/post1.jpg" />
+                <img class="postImg" src="${values.img}" />
             </div>
 
             <div class="postBottom">
