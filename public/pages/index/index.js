@@ -15,18 +15,13 @@ async function getName(id) {
 async function getPfP(id) {
     return fetch("/api/users/" + id).then((data) => {
         return data.json();
-  
     }).then((completedata) => {
         console.log(completedata.profilePicture);
-        
-        return completedata.profilePicture;
-        
+        return completedata.profilePicture; 
     }).catch((err) => {
         console.log(err);
     });
 }
-
-
 
 
 fetch("/api/posts/timeline/all")
@@ -59,12 +54,8 @@ fetch("/api/posts/timeline/all")
 
             <div class="postBottom">
                 <div class="postBottomLeft">
-                    <img src="./assets/svg/emoji.svg" class="shareIcon" />
-                    <span class="postLikeCounter"> ${values.likes.length}</span>
-                </div>
-
-                <div class="postBottomRight">
-                    <span class="postCommentText"> Comment goes here </span>
+                    <img src="./assets/svg/emoji.svg" class="shareIcon-${values._id} shareIcon" data-postId="${values._id}" />
+                    <span class="postLikeCounter postLikeCounter-${values._id}">${values.likes.length}</span>
                 </div>
             </div>
         </div>
@@ -73,7 +64,25 @@ fetch("/api/posts/timeline/all")
         
         
         `
+        
     document.getElementById("postContainer").insertAdjacentHTML("afterbegin", postData);
+    const likeButtons = document.querySelector(`.shareIcon-${values._id}`)
+    likeButtons.addEventListener("click", () => {
+        fetch(`/api/posts/${values._id}/like`, {method:"put"})
+        .then((res) => res.text())
+        .then((data) => {
+            const postLikeCounter = document.querySelector(`.postLikeCounter-${values._id}`)
+            const currentLikeCounter = parseInt(postLikeCounter.textContent)
+            console.log(data, "The post has been disliked")
+            if(data === "\"The post has been disliked\""){
+                console.log("Hallo")
+                postLikeCounter.textContent = currentLikeCounter - 1
+            } else {
+                postLikeCounter.textContent = currentLikeCounter + 1
+            }
+        });
+    });
+    console.log(likeButtons);
     });
 }).catch((err) => {
     console.log(err);
@@ -104,5 +113,6 @@ postForm.addEventListener ("submit",  e => {
       .catch(error => console.log('error', error));
 });
 
+document.querySelector(".shareProfileImg").src = JSON.parse(window.localStorage.getItem('user')).profilePicture
 
 

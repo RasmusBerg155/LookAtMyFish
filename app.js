@@ -11,11 +11,12 @@ const server = http.createServer(app);
 
 const io = new Server(server);
 
-
-
-
 dotenv.config();
-app.use(session({secret: 'shh'}));
+app.use(session({secret: 'shh',
+    resave: false,
+    saveUninitialized: true,
+}));
+
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -31,16 +32,13 @@ const { urlencoded } = require("express");
 const users = {};
 
 //socket.io
-
 io.on("connection", socket => {
-
 
     socket.on('new-user', name => {
         users[socket.id] = name;
         socket.broadcast.emit('user-connected', name);
     })
 
-    
     socket.on("send-chat-message", message => {
         socket.broadcast.emit("chat-message", { message: message, name: users[socket.id]});
     })
@@ -49,8 +47,6 @@ io.on("connection", socket => {
         socket.broadcast.emit('user-disconnected', users[socket.id]);
         delete users[socket.id];
     })
-
-
 })
 
 //mongoose
@@ -73,11 +69,6 @@ app.use("/api/posts", postRoute);
 
 app.use(pagesRoute);
 
-/*
-app.listen(8080, () => {
-    console.log("Server running on port 8080");
-});
-*/
 server.listen(3000, () => {
     console.log('Server listening on Port 3000');
   })

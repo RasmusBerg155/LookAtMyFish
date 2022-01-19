@@ -1,10 +1,8 @@
 fetch("/api/users/" + JSON.parse(window.localStorage.getItem("user"))._id)
 .then((data) => {
-    console.log(data)
     return data.json();
 })
 .then((completedata) => {
-    console.log(completedata)
     completedata.map((values) => {
         const userData = `
         <div class="profile">
@@ -22,3 +20,5 @@ fetch("/api/users/" + JSON.parse(window.localStorage.getItem("user"))._id)
 }).catch((err) => {
     console.log(err);
 })
+
+document.querySelector(".profileUserImg").src = JSON.parse(window.localStorage.getItem('user')).profilePicture

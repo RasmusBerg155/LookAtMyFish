@@ -15,11 +15,6 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 
 
-// Auth mangler session 
-
-
-
-
 // register
 router.post("/register", upload.single("profilePicture"), async (req, res) => {
     try{
@@ -60,7 +55,6 @@ router.post("/login", async (req, res) => {
         req.session.currentUser = user;
         return res.status(200).json(user);
     } catch (err) {
-        console.log("yo5")
         res.status(500).json(err);
     }
 });
